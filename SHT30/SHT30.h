@@ -1,4 +1,5 @@
-ifndef SHT30_H
+
+#ifndef SHT30_H
 #define SHT30_H
 
 #include "mbed.h"
@@ -37,7 +38,7 @@ public:
     * This function is called also in init(char);
     * @param mode of sensor operation.
     */
-    
+  static char readbuffer[6];  
   SHT30(PinName sda, PinName slc);
   float readTemperature(void);
   float readHumidity(void);
@@ -46,7 +47,7 @@ public:
   void heater(bool h);
   bool isHeaterEnabled();
 
-  
+
 
 private:
   /**
@@ -55,7 +56,7 @@ private:
     
   I2C i2c; 
   float humidity;
-  char readbuffer[6];
+  //char readbuffer[6];
 
   /**
    * Placeholder to track temperature internally.
