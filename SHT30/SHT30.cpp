@@ -4,6 +4,7 @@ SHT30::SHT30(PinName sda, PinName scl) : i2c(sda,scl)
 {
      humidity = NAN;
      temp = NAN;
+     i2c.frequency(400000);
 
 }
 
@@ -106,8 +107,7 @@ uint8_t SHT30::crc8(char *data, uint8_t len)
   return crc;
 }*/
 
-
-
+char SHT30::readbuffer[6];  
 bool SHT30::readTempHum(void) {
   
   writeCommand(SHT30_MEAS_HIGHREP);
@@ -171,6 +171,7 @@ bool SHT30::readTempHum(void) {
  //status = i2c.write(BH1750_I2CADDR, data, sizeof(data), false);
     //read (int address, char *data, int length, bool repeated=false)
     //write (int address, const char *data, int length, bool repeated=false)
+
 
 
 
