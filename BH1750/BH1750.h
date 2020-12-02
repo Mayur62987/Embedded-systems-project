@@ -78,6 +78,7 @@ public:
     * @param sda
     * @param scl
     */
+    static char rawDataBuffer[2];
     BH1750(PinName sda, PinName slc);
 
     /**
@@ -116,7 +117,7 @@ public:
 
 private:
     I2C i2c;
-    char rawDataBuffer[2];
+    
     int status;
 };
 
