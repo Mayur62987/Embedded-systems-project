@@ -1,11 +1,3 @@
-/*
-
-This is a library for the BH1750FVI (GY-30) Digital Light Sensor
-breakout board.
-
-The board uses I2C for communication. 2 pins are required to
-interface to the device and in most cases also pull up resistors.
-
 Datasheet:
 http://rohmfs.rohm.com/en/products/databook/datasheet/ic/sensor/light/bh1750fvi-e.pdf
 
@@ -16,8 +8,10 @@ Written by Michal Stehlik, August, 2014.
 
 #include "BH1750.h"
 
+char BH1750::rawDataBuffer[2];
+
 BH1750::BH1750(PinName sda, PinName scl) : i2c(sda,scl)
-{
+{   i2c.frequency(400000);
     rawDataBuffer[0] = 0;
     rawDataBuffer[1] = 0;
     status = -1;
